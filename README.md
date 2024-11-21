@@ -14,5 +14,4 @@ The following resources will be deployed bis this template:
 - Network Interfaces with Public IP-Addresses for the Virtual Machines
 - A Network Interface with a Public IP-Address for the Load Balancer
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ffloresboy%2Fhivemq-vm-cluster%2Frefs%2Fheads%2Fmaster%2Fazuredeploy.json)
-
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Ffloresboy%2Fhivemq-cluster-rollout%2Frefs%2Fheads%2Fmaster%2Fazuredeploy.json)
