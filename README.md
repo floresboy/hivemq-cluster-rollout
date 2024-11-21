@@ -1,5 +1,7 @@
 # HiveMQ Virtual Machine Cluster / Kamiels version
 
+v1.1
+
 This template deploys a n-Node HiveMQ cluster to Azure.
 
 Be aware that the nodes will get a local IP adress. This migh be disassociated later and access can take place ov er a bastion host
