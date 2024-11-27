@@ -53,7 +53,7 @@
             "type": "bool",
             "defaultValue": false,
             "metadata": {
-                "description": "Enable public IP for VMs."
+            "description": "Enable public IP addresses for the virtual machines"
             }
         }
     },
