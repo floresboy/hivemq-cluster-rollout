@@ -184,6 +184,7 @@
                         "name": "ipconfig1",
                         "properties": {
                             "publicIPAddress": {
+                                "condition": "[parameters('enablePublicIP')]",
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip'))]"
                             },
                             "privateIPAllocationMethod": "Dynamic",
