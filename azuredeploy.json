@@ -48,6 +48,13 @@
             "metadata": {
                 "description": "Number of VMs to deploy"
             }
+        },
+        "enablePublicIP": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Enable public IP for VMs."
+            }
         }
     },
     "variables": {
