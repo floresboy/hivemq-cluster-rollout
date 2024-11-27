@@ -310,7 +310,7 @@
                 ],
                 "loadBalancingRules": [
                     {
-                        "name": "[concat(variables('loadBalancersName'), '-rule1')]",
+                        "name": "[concat(variables('loadBalancersName'), '-CC')]",
                         "properties": {
                             "frontendIPConfiguration": {
                                 "id": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancersName'), variables('frontendName'))]"
@@ -326,12 +326,12 @@
                                 "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', variables('loadBalancersName'), variables('backendPoolName'))]"
                             },
                             "probe": {
-                                "id": "[resourceId('Microsoft.Network/loadBalancers/probes', variables('loadBalancersName'), variables('healthProbeControlCenter'))]"
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/probes', variables('loadBalancersName'), variables('HMQhealthAPI'))]"
                             }
                         }
                     },
                     {
-                        "name": "[concat(variables('loadBalancersName'), '-rule2')]",
+                        "name": "[concat(variables('loadBalancersName'), '-MQTT-1883')]",
                         "properties": {
                             "frontendIPConfiguration": {
                                 "id": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancersName'), variables('frontendName'))]"
@@ -354,28 +354,10 @@
                 ],
                 "probes": [
                     {
-                        "name": "[variables('healthProbeHivemq')]",
-                        "properties": {
-                            "protocol": "Tcp",
-                            "port": 1883,
-                            "intervalInSeconds": 5,
-                            "numberOfProbes": 2
-                        }
-                    },
-                    {
                         "name": "[variables('HMQhealthAPI')]",
                         "properties": {
                             "protocol": "Tcp",
                             "port": 8889,
-                            "intervalInSeconds": 5,
-                            "numberOfProbes": 2
-                        }
-                    },
-                    {
-                        "name": "[variables('healthProbeControlCenter')]",
-                        "properties": {
-                            "protocol": "Tcp",
-                            "port": 8080,
                             "intervalInSeconds": 5,
                             "numberOfProbes": 2
                         }

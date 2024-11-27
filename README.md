@@ -2,6 +2,8 @@
 
 master commit 2,2 
 added API listeners
+added probes
+
 
 
 This template deploys a n-Node HiveMQ cluster to Azure.
