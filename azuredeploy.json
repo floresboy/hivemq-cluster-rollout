@@ -51,7 +51,7 @@
         },
         "enablePublicIP": {
             "type": "bool",
-            "defaultValue": false,
+            "defaultValue": true,
             "metadata": {
             "description": "Enable public IP addresses for the virtual machines"
             }
@@ -124,7 +124,7 @@
             "name": "[concat(variables('vmName'), copyIndex(),'-public-ip')]",
             "copy": {
                 "name": "publicIpLoop",
-                "count": "[parameters('numberOfInstances')]"
+                "count": "[if(parameters('enablePublicIP'),parameters('numberOfInstances'),0)]"
             },
             "location": "[resourceGroup().location]",
             "properties": {
