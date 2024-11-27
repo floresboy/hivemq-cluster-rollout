@@ -52,6 +52,34 @@ echo "<?xml version=\"1.0\"?>
 
     </cluster>
 
+    <rest-api>
+        <!-- Enables or disables the HiveMQ REST API-->
+        <enabled>true</enabled>
+        <!-- Enables or disables authentication and authorization for the HiveMQ REST API-->
+        <auth>
+            <enabled>false</enabled>
+        </auth>
+        <listeners>
+            <http>
+                <port>8888</port>
+                <bind-address>0.0.0.0</bind-address>
+            </http>
+        </listeners>
+    </rest-api>
+
+
+    <health-api>
+        <enabled>true</enabled>
+        <listeners>
+        <http>
+            <port>8889</port>
+            <name>health-api-listener</name>
+            <bind-address>0.0.0.0</bind-address>
+        </http>
+        </listeners>
+    </health-api>
+
+
      <control-center>
         <enabled>true</enabled>
         <listeners>
