@@ -176,8 +176,7 @@
             "dependsOn": [
                 "publicIpLoop",
                 "[variables('virtualNetworkName')]",
-                "[variables('loadBalancersName')]",
-                // // "[if(parameters('enablePublicIP')[copyIndex()], resourceId('Microsoft.Network/publicIPAddresses', format('publicIP-{0}', copyIndex())), json('null'))]"
+                "[variables('loadBalancersName')]"
             ],
             "properties": {
                 "ipConfigurations": [
