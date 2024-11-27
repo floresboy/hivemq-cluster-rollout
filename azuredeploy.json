@@ -65,6 +65,7 @@
         "backendPoolName": "hivemq-node",
         "frontendName": "LoadBalancerFrontEnd",
         "healthProbeHivemq": "hivmeq-node-health",
+        "HMQhealthAPI" : "hivemq-node-health-API",
         "healthProbeControlCenter": "hivemq-control-center-health",
         "loadBalancerPublicIpName": "[concat(variables('loadBalancersName'), 'public-ip')]",
         "linuxConfiguration": {
@@ -346,7 +347,7 @@
                                 "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', variables('loadBalancersName'), variables('backendPoolName'))]"
                             },
                             "probe": {
-                                "id": "[resourceId('Microsoft.Network/loadBalancers/probes', variables('loadBalancersName'), variables('healthProbeHivemq'))]"
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/probes', variables('loadBalancersName'), variables('HMQhealthAPI'))]"
                             }
                         }
                     }
@@ -357,6 +358,15 @@
                         "properties": {
                             "protocol": "Tcp",
                             "port": 1883,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    },
+                    {
+                        "name": "[variables('HMQhealthAPI')]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 8889,
                             "intervalInSeconds": 5,
                             "numberOfProbes": 2
                         }
