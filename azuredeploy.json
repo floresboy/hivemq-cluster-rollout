@@ -184,7 +184,8 @@
                         "name": "ipconfig1",
                         "properties": {
                             "publicIPAddress": {
-                                "id": "[if(parameters('enablePublicIP'),resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip')), json('null'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip'))]"
+                                // "id": "[if(parameters('enablePublicIP'),resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip')), json('null'))]"
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
