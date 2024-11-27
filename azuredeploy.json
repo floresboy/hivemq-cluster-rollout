@@ -176,7 +176,8 @@
             "dependsOn": [
                 "publicIpLoop",
                 "[variables('virtualNetworkName')]",
-                "[variables('loadBalancersName')]"
+                "[variables('loadBalancersName')]",
+                "[if(parameters('enablePublicIPs')[copyIndex()], resourceId('Microsoft.Network/publicIPAddresses', format('publicIP-{0}', copyIndex())), json('null'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -184,8 +185,7 @@
                         "name": "ipconfig1",
                         "properties": {
                             "publicIPAddress": {
-                                "condition": "[parameters('enablePublicIP')]",
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip'))]"
+                                "id": "[if(parameters('enablePublicIP'),resourceId('Microsoft.Network/publicIPAddresses', concat(variables('vmName'), copyIndex(),'-public-ip')), json('null'))]"
                             },
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
