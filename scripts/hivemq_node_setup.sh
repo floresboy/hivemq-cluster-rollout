@@ -10,6 +10,9 @@ EXTENSION_DOWNLOAD_LINK="https://github.com/hivemq/hivemq-azure-cluster-discover
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+# sudo apt install default-jdk
+#     sudo apt install openjdk-21-jdk
+
 sudo apt-get install -y openjdk-11-jdk
 sudo apt-get -y install unzip
 
